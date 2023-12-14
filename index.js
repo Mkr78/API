@@ -1,11 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 const app = express();
+
+app.use(express.json());
 
 const homeRouter = require('./routes/home');
 
 app.use('/home', homeRouter);
+
+const productsRouter = require('./routes/products');
+
+app.use('/products', productsRouter);
+
 
 // On créenotre application express
 // On prend en charge les intéractions avec les données type JSON
